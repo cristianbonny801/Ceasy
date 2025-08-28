@@ -1,0 +1,214 @@
+/* =========================
+   ESTILOS GENERALES
+========================= */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #f2f9ff, #e6f7ff);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: block;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* ========================
+   NAV RANDOM ESTILO
+======================== */
+.nav-random {
+    width: 100%;
+    background: linear-gradient(45deg, #00b4d8, #0077b6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    color: white;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.nav-random .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-random .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-random .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-random .nav-links li a:hover {
+    color: #caf0f8;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.12);
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+/* =========================
+   TITULOS
+========================= */
+h2 {
+    color: #0077b6;
+    margin-bottom: 15px;
+    font-size: 22px;
+    text-align: center;
+}
+
+h3 {
+    margin-top: 25px;
+    color: #023e8a;
+    font-size: 18px;
+}
+
+/* =========================
+   INPUT Y BOTONES
+========================= */
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #90e0ef;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-top: 10px;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-color: #0077b6;
+    box-shadow: 0 0 8px #90e0ef;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    background: #00b4d8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:hover {
+    background: #0077b6;
+}
+
+/* =========================
+   TABLA
+========================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    display: block;
+    overflow-x: auto;
+}
+
+th,
+td {
+    border: 1px solid #caf0f8;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #0077b6;
+    color: white;
+    font-weight: normal;
+}
+
+td {
+    background: #f1faff;
+    font-weight: bold;
+}
+
+/* =============
+   MEDIA QUERY 
+=============== */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        /* ocupa todo el ancho del móvil */
+        max-width: none;
+        /* quita límite de ancho */
+        height: 100vh;
+        /* altura completa del viewport */
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    input,
+    button {
+        width: 95%;
+        /* ocupan casi todo el ancho */
+        padding: 18px;
+        /* más grande para tocar cómodo */
+        font-size: 1.4rem;
+        margin: 10px 0;
+    }
+
+    #resultados {
+        width: 95%;
+        font-size: 1.4rem;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+.nav-random .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #0077b6;
+    position: absolute;
+    top: 60px;
+    left: 0;
+}
+
+.nav-random .nav-links.active {
+    display: flex;
+}
+
+.menu-toggle {
+    display: block;
+}
