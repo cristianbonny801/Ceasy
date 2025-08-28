@@ -1,33 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 
+
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ceasy</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="favicon/Ceasy.png" type="image/x-icon">
-<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 </head>
 
 <body>
-<nav class="nav-random">
-  <div class="logo">Ceasy📊</div>
-  <ul class="nav-links">
-    <li><a href="#">Inicio</a></li>
-    <li><a href="#">Servicios</a></li>
-    <li><a href="#">Galería</a></li>
-    <li><a href="#">Contacto</a></li>
-  </ul>
-  <div class="menu-toggle">☰</div>
-</nav>
 
-  <div class="container">
-    <h2>📊 Calculadora Estadística</h2>
-    <p>Escribe los números separados por comas:</p>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="nav-random">
+    <div class="logo">Ceasy📊</div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#calculadora">Calculadora</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="https://wa.me/573245476764" target="_blank">Contacto</a></li>
+    </ul>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
 
-    <input type="text" id="entradaNumeros" placeholder="Ej: 10,20,30,40">
-    <button onclick="procesarDatos()">Calcular</button>
+  <!-- ===== SECCIÓN INICIO ===== -->
+  <section id="inicio" class="container">
+    <h1>Bienvenido a Ceasy</h1>
+    <p>Esta es tu página principal. Desde aquí puedes acceder a la calculadora estadística.</p>
+    <a href="#calculadora">
+      <button>Ir a la Calculadora 📊</button>
+    </a>
+  </section>
+
+  <!-- ===== SECCIÓN CALCULADORA ===== -->
+  <section id="calculadora" class="container">
+    <h2 id="titulo">📊 Calculadora Estadística</h2>
+    <p id="descripcion">Elige poblacional o muestral y escribe los números separados por comas, sean enteros o
+      decimales:</p>
+
+    <div class="toggle-buttons">
+      <button id="btnPoblacional" class="active" type="button"
+        onclick="seleccionarTipo('poblacional')">Poblacional</button>
+      <button id="btnMuestral" type="button" onclick="seleccionarTipo('muestral')">Muestral</button>
+    </div>
+
+    <input type="text" id="entradaNumeros" placeholder="Ej: 10, 20, 30 o 1.5, 2.7, 2">
+
+    <button type="button" onclick="procesarDatos()">Calcular</button>
 
     <h3>Resultados</h3>
     <table>
@@ -48,9 +76,41 @@
         </tr>
       </tbody>
     </table>
-    <button onclick="descargarExcel()" id="descargarExcel">📥 Descargar Excel</button>
-  </div>
+
+    <button class="descargarExcel" onclick="descargarExcel()" id="descargarExcel">📥 Descargar Excel</button>
+  </section>
+
   <script src="js/app.js"></script>
+  <script src="js/typeWriter.js"></script>
+</body>
+
+</html>
+
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Sección redes -->
+    <x
+
+    <!-- Sección contacto -->
+    <div class="footer-contacto">
+      <h4>Contacto</h4>
+      <p>📞 +57 324 547 6764</p>
+      <p>cristianjuvinao801@gmail.com</p>
+      <p>cdjuvinao@mail.uniatlantico.edu.com</p>
+    </div>
+
+    <!-- Sección derechos -->
+    <div class="footer-derechos">
+      <p>&copy; 2025 Ceasy. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+
+<script src="js/app.js"></script>
 </body>
 
 </html>

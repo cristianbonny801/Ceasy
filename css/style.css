@@ -1,65 +1,174 @@
-/* =========================
-   ESTILOS GENERALES
-========================= */
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, #f2f9ff, #e6f7ff);
-    color: #333;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    display: block;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-/* ========================
-   NAV RANDOM ESTILO
-======================== */
+body {
+    background: linear-gradient(135deg, #f2f9ff, #e6f7ff);
+    color: #333;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== NAVBAR PROFESIONAL ===== */
 .nav-random {
-    width: 100%;
-    background: linear-gradient(45deg, #00b4d8, #0077b6);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
-    box-sizing: border-box;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #0077b6, #00b4d8);
     color: white;
-    font-family: "Segoe UI", Arial, sans-serif;
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
 }
 
 .nav-random .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
-.nav-random .nav-links {
-    list-style: none;
+.nav-links {
     display: flex;
-    gap: 20px;
+    gap: 25px;
+    list-style: none;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
 }
 
-.nav-random .nav-links li a {
+.nav-links li a {
     color: white;
     text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease, transform 0.3s ease;
 }
 
-.nav-random .nav-links li a:hover {
-    color: #caf0f8;
+/* Fondo degradado al hacer hover */
+.nav-links li a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+    transition: height 0.3s ease;
+    border-radius: 8px;
+}
+
+/* Subrayado animado */
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s;
+    transform: translateX(-50%);
+}
+
+/* Hover del enlace */
+.nav-links li a:hover {
+    transform: translateY(-3px);
+    color: #fff;
+    /* opcional */
+}
+
+/* Animaciones al hacer hover */
+.nav-links li a:hover::before {
+    height: 100%;
+}
+
+.nav-links li a:hover::after {
+    width: 80%;
 }
 
 .menu-toggle {
     display: none;
-    font-size: 1.8rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
     cursor: pointer;
 }
 
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
 
+/* Animación de hamburguesa → X */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===== TITULO Y DESCRIPCION RESPONSIVE ===== */
+#titulo,
+#descripcion {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    /* permite saltos de línea */
+    overflow: hidden;
+    border-right: 2px solid #0077b6;
+    /* cursor parpadeante */
+    display: inline-block;
+    margin: 20px 0;
+    line-height: 1.4;
+    word-wrap: break-word;
+    animation: blinkCursor 0.7s infinite;
+    width: 100%;
+    /* que tome todo el ancho del contenedor */
+    max-width: 100%;
+    /* nunca salga del contenedor */
+}
+
+/* Tamaño de letra dinámico según el ancho del contenedor */
+#titulo {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    /* mínimo 1.5rem, máximo 2rem, 5vw se ajusta al ancho */
+    text-align: center;
+}
+
+#descripcion {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    /* mínimo 1rem, máximo 1.2rem */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+/* ===== CONTAINER ===== */
 .container {
-    width: 80%;
-    margin: 0 auto;
+    width: 90%;
+    margin: 30px auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -68,12 +177,9 @@ body {
     border-radius: 15px;
     box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.12);
     max-width: 500px;
-    box-sizing: border-box;
 }
 
-/* =========================
-   TITULOS
-========================= */
+
 h2 {
     color: #0077b6;
     margin-bottom: 15px;
@@ -87,12 +193,19 @@ h3 {
     font-size: 18px;
 }
 
-/* =========================
-   INPUT Y BOTONES
-========================= */
+label[for="unidad"] {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* ===== INPUTS Y BOTONES ===== */
 input {
+    font-size: 1rem;
+    max-width: 100%;
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border: 2px solid #90e0ef;
     border-radius: 8px;
     font-size: 15px;
@@ -108,37 +221,93 @@ input:focus {
 }
 
 button {
+    max-width: 100%;
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     margin-top: 12px;
     background: #00b4d8;
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 1rem;
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-button:active {
-    transform: scale(0.98);
 }
 
 button:hover {
     background: #0077b6;
 }
 
-/* =========================
-   TABLA
-========================= */
+button:active {
+    transform: scale(0.98);
+}
+
+.descargarExcel {
+    background-color: green;
+}
+
+/* ===== TOGGLE BUTTONS ===== */
+.toggle-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.toggle-buttons button {
+    position: relative;
+    padding: 10px 25px;
+    border: 2px solid #0077b6;
+    border-radius: 30px;
+    background: #fff;
+    color: #0077b6;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.toggle-buttons button::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 120%;
+    height: 300%;
+    background: rgba(0, 119, 182, 0.1);
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+    z-index: 0;
+}
+
+.toggle-buttons button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.toggle-buttons button:hover {
+    color: #fff;
+    background: #0077b6;
+    box-shadow: 0 6px 12px rgba(0, 119, 182, 0.3);
+}
+
+.toggle-buttons button.active {
+    background: #0077b6;
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 119, 182, 0.3);
+}
+
+
+
+/* ===== TABLA ===== */
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+    max-width: 100%;
     display: block;
     overflow-x: auto;
 }
+
 
 th,
 td {
@@ -150,7 +319,6 @@ td {
 th {
     background: #0077b6;
     color: white;
-    font-weight: normal;
 }
 
 td {
@@ -158,57 +326,211 @@ td {
     font-weight: bold;
 }
 
-/* =============
-   MEDIA QUERY 
-=============== */
-@media (max-width: 600px) {
-    .container {
-        width: 100%;
-        /* ocupa todo el ancho del móvil */
-        max-width: none;
-        /* quita límite de ancho */
-        height: 100vh;
-        /* altura completa del viewport */
-        padding: 20px;
+/* ===== FOOTER ===== */
+.footer {
+    background: #222;
+    color: #fff;
+    padding: 15px 20px;
+    margin-top: 30px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+}
+
+.footer h4 {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #0077b6;
+}
+
+.footer a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    color: #0077b6;
+}
+
+.footer-contacto p {
+    margin: 3px 0;
+    font-size: 13px;
+}
+
+.footer-derechos {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Contenedor redes */
+.footer-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.footer-redes h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+/* Links */
+.footer-redes a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-redes a i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+/* Facebook */
+.footer-redes a .fa-facebook {
+    color: #1877F2;
+    /* Azul oficial */
+}
+
+.footer-redes a:hover .fa-facebook {
+    transform: scale(1.2);
+    color: #145dbf;
+}
+
+/* Instagram (degradado) */
+.footer-redes a .fa-instagram {
+    background: radial-gradient(circle at 30% 107%,
+            #fdf497 0%,
+            #fdf497 5%,
+            #fd5949 45%,
+            #d6249f 60%,
+            #285AEB 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-redes a:hover .fa-instagram {
+    transform: scale(1.2);
+}
+
+/* LinkedIn */
+.footer-redes a .fa-linkedin {
+    color: #0A66C2;
+    /* Azul oficial */
+}
+
+.footer-redes a:hover .fa-linkedin {
+    transform: scale(1.2);
+    color: #004182;
+}
+
+/* WhatsApp */
+.footer-redes a .fa-whatsapp {
+    color: #25D366;
+    /* Verde oficial */
+}
+
+.footer-redes a:hover .fa-whatsapp {
+    transform: scale(1.2);
+    color: #1ebe57;
+}
+
+/* ===== RESPONSIVE GENERAL ===== */
+* {
+    box-sizing: border-box;
+    /* evita que padding y border sumen ancho */
+}
+
+body {
+    overflow-x: hidden;
+    /* quita scroll horizontal */
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Inputs y botones */
+input,
+button {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    /* permite scroll solo dentro de la tabla */
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
         display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #0077b6;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        box-sizing: border-box;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.4s ease;
+        border-radius: 0 0 15px 15px;
     }
 
-    input,
-    button {
-        width: 95%;
-        /* ocupan casi todo el ancho */
-        padding: 18px;
-        /* más grande para tocar cómodo */
-        font-size: 1.4rem;
-        margin: 10px 0;
+    .nav-links.active {
+        max-height: 500px;
+        opacity: 1;
     }
 
-    #resultados {
-        width: 95%;
-        font-size: 1.4rem;
+    .nav-links li {
         text-align: center;
+        padding: 15px 0;
+    }
+
+    .toggle-buttons {
+        display: block;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .footer-derechos {
+        text-align: center;
+        width: 100%;
         margin-top: 20px;
     }
-}
-
-.nav-random .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: #0077b6;
-    position: absolute;
-    top: 60px;
-    left: 0;
-}
-
-.nav-random .nav-links.active {
-    display: flex;
-}
-
-.menu-toggle {
-    display: block;
 }
