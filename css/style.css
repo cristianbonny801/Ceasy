@@ -489,6 +489,7 @@ table {
     /* permite scroll solo dentro de la tabla */
 }
 
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;

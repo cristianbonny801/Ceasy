@@ -1,12 +1,3 @@
-// ===== MENU HAMBURGUESA =====
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  menuToggle.classList.toggle('active'); // animación hamburguesa → X
-});
-
 // ===== SELECCIÓN DE TIPO DE CÁLCULO =====
 let tipoCalculo = "poblacional";
 
@@ -16,20 +7,27 @@ function seleccionarTipo(tipo) {
   const botones = document.querySelectorAll(".toggle-buttons button");
   botones.forEach(btn => btn.classList.remove("active"));
 
-  document.getElementById(
+  const boton = document.getElementById(
     tipo === "poblacional" ? "btnPoblacional" : "btnMuestral"
-  ).classList.add("active");
+  );
+  if (boton) boton.classList.add("active");
 }
 
 // ===== FUNCIONES ESTADÍSTICAS =====
 function calcularPromedio(array) {
-  let suma = array.reduce((a,b) => a+b, 0);
+  let suma = 0;
+  for (let i = 0; i < array.length; i++) {
+    suma += array[i];
+  }
   return suma / array.length;
 }
 
 function calcularVarianza(array, tipo = "poblacional") {
   let media = calcularPromedio(array);
-  let sumaCuadrados = array.reduce((acc, val) => acc + (val - media)**2, 0);
+  let sumaCuadrados = 0;
+  for (let i = 0; i < array.length; i++) {
+    sumaCuadrados += (array[i] - media) ** 2;
+  }
   return tipo === "muestral" && array.length > 1
     ? sumaCuadrados / (array.length - 1)
     : sumaCuadrados / array.length;
