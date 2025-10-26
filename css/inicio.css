@@ -1,0 +1,219 @@
+/* ======== SECCIÓN INICIO (BENTO GRID) ======== */
+.inicio-bento {
+  padding: 60px 30px;
+  text-align: center;
+  background: #ffffff;
+  /* Fondo blanco */
+  color: #1e293b;
+  /* Texto oscuro */
+  min-height: 100vh;
+}
+
+.inicio-bento span {
+  color: #0078d4;
+  /* Azul moderno */
+}
+
+.inicio-bento h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.inicio-bento p {
+  font-size: 1.1rem;
+  color: #475569;
+  margin-bottom: 40px;
+}
+
+/* ======== GRID DE LAS TARJETAS ======== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ======== TARJETAS ======== */
+.bento-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #0f172a;
+  padding: 30px 20px;
+  transition: all 0.35s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #cbd5e1;
+  background: #f9fafb;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ======== CONTENIDO DE LAS TARJETAS ======== */
+.bento-content {
+  position: relative;
+  z-index: 2;
+}
+
+.bento-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+.bento-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+}
+.btn-bento {
+  margin: 2px ;
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 15px;
+  background: #ec4899;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-bento:hover {
+  background: #d63686;
+}
+
+
+/* ======== EFECTO DE ILUMINACIÓN SUAVE ======== */
+.bento-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at top left, rgba(0, 0, 0, 0.05), transparent 60%);
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+/* ======== COLORES TEMÁTICOS ======== */
+.calculadora {
+  border-top: 4px solid #3b82f6;
+}
+
+.frecuencia {
+  border-top: 4px solid #10b981;
+}
+
+.graficos {
+  border-top: 4px solid #ef4444;
+}
+
+.teoria {
+  border-top: 4px solid #f59e0b;
+}
+
+.exportar {
+  border-top: 4px solid #6366f1;
+}
+
+.ejercicios {
+  border-top: 4px solid #06b6d4;
+}
+
+.probabilidad {
+  border-top: 4px solid #ec4899;
+}
+
+.glosario {
+  border-top: 4px solid #84cc16;
+}
+
+.tutoriales {
+  border-top: 4px solid #fb923c;
+}
+
+.configuracion {
+  border-top: 4px solid #a855f7;
+}
+
+/* ======== HOVER COLOREADO ======== */
+.bento-card:hover h3 {
+  color: #0078d4;
+}
+@media (max-width: 790px) {
+  /* ======== SECCIÓN INICIO (BENTO GRID) ======== */
+  .inicio-bento {
+    padding: 40px 15px;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .inicio-bento h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .inicio-bento p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    padding: 0 10px;
+  }
+
+  /* ======== GRID DE LAS TARJETAS ======== */
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 100%;
+  }
+
+  /* ======== TARJETAS ======== */
+  .bento-card {
+    padding: 18px 14px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .bento-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .bento-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .bento-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .btn-bento {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 0.95rem;
+    margin-top: 10px;
+  }
+
+  /* ======== EFECTO DE ILUMINACIÓN ======== */
+  .bento-card::before {
+    opacity: 0.1;
+  }
+}

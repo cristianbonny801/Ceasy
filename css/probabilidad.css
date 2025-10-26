@@ -1,0 +1,83 @@
+/* ======== SECCIONES DE PROBABILIDAD ======== */
+.probabilidad-section {
+  border-radius: 16px;
+  padding: 25px 20px;
+  margin: 25px 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.probabilidad-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.probabilidad-section h2 {
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  color: #1e293b;
+}
+
+.probabilidad-section p {
+  margin-bottom: 15px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* ======== INPUTS ======== */
+.probabilidad-section input {
+  margin: 5px 10px 10px 0;
+  padding: 10px 12px;
+  width: 160px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.probabilidad-section input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+/* ======== BOTONES ======== */
+.probabilidad-section button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  background: #ec4899; /* color rosa bento */
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.probabilidad-section button:hover {
+  background: #db2777;
+  transform: translateY(-2px);
+}
+
+/* ======== RESULTADOS ======== */
+.probabilidad-section p[id^="res"] {
+  margin-top: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 1.05rem;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  .probabilidad-section input {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .probabilidad-section {
+    padding: 20px 15px;
+  }
+}

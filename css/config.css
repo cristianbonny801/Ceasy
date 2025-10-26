@@ -1,0 +1,107 @@
+.config-section {
+  padding: 4rem 2rem;
+  background: var(--bg-page, #f4f6f8);
+  color: var(--text-color, #222);
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.config-section h2 {
+  font-size: 2.3rem;
+  color: var(--primary, #0a6d92);
+  margin-bottom: 1rem;
+}
+
+.config-intro {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+.config-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.config-card {
+  background: var(--card-bg, #fff);
+  padding: 1.8rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.config-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+}
+
+.config-card h3 {
+  color: var(--primary, #0a6d92);
+  margin-bottom: 0.5rem;
+}
+
+.config-card p {
+  color: var(--text-color, #333);
+  margin-bottom: 1rem;
+}
+
+input[type="range"] {
+  width: 80%;
+  accent-color: var(--primary, #0a6d92);
+  cursor: pointer;
+}
+
+#font-size-label {
+  display: block;
+  margin-top: 0.4rem;
+  font-weight: 600;
+  color: var(--primary, #0a6d92);
+}
+
+input[type="color"] {
+  border: none;
+  width: 60px;
+  height: 40px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-toggle, .btn-save {
+  padding: 0.8rem 1.2rem;
+  background: var(--primary, #0a6d92);
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-toggle:hover, .btn-save:hover {
+  background: #0d91b3;
+  transform: scale(1.03);
+}
+
+.save-card {
+  grid-column: span 2;
+}
+
+.save-message {
+  margin-top: 1rem;
+  color: var(--primary, #0a6d92);
+  font-weight: 600;
+  display: none;
+}
+
+/* 🌙 Modo Oscuro */
+.dark-mode {
+  --bg-page: #111827;
+  --card-bg: #1f2937;
+  --text-color: #f3f4f6;
+}

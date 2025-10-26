@@ -1,0 +1,134 @@
+.teoria-section {
+  padding: 4rem 2rem;
+  background: #f8f9fb;
+  color: #1e1e1e;
+  text-align: center;
+  border-top: 2px solid #dde4ec;
+}
+
+.teoria-section h2 {
+  font-size: 2.2rem;
+  color: #1b3b5f;
+  margin-bottom: 1rem;
+}
+
+.intro-teoria {
+  font-size: 1.1rem;
+  color: #5a5a5a;
+  margin-bottom: 2rem;
+}
+
+.teoria-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  justify-content: center;
+}
+
+.teoria-card {
+  background: linear-gradient(145deg, #ffffff, #e6ebf0);
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 64, 128, 0.08);
+  text-align: left;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.teoria-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 100, 200, 0.15);
+}
+
+.teoria-titulo {
+  font-size: 1.3rem;
+  color: #003366;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.teoria-titulo::after {
+  content: "▼";
+  position: absolute;
+  right: 0;
+  font-size: 0.8rem;
+  color: #0077b6;
+  transition: transform 0.3s ease;
+}
+
+.teoria-card.active .teoria-titulo::after {
+  transform: rotate(180deg);
+}
+
+.teoria-contenido {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.teoria-card.active .teoria-contenido {
+  max-height: 400px;
+  opacity: 1;
+  margin-top: 0.8rem;
+}
+
+.teoria-contenido code {
+  display: block;
+  background: #eef4f8;
+  color: #004080;
+  padding: 0.6rem;
+  margin-top: 0.8rem;
+  border-radius: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+@media (max-width: 790px) {
+  .teoria-section {
+    padding: 2.5rem 1rem;
+    text-align: center;
+  }
+
+  .teoria-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .intro-teoria {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .teoria-cards {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .teoria-card {
+    padding: 1rem 1.2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0, 64, 128, 0.08);
+  }
+
+  .teoria-titulo {
+    font-size: 1.1rem;
+  }
+
+  .teoria-titulo::after {
+    font-size: 0.7rem;
+  }
+
+  .teoria-contenido {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .teoria-contenido code {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+}

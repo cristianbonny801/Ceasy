@@ -1,134 +1,705 @@
 <!DOCTYPE html>
 <html lang="es">
 
-
-<!DOCTYPE html>
-<html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ceasy</title>
+  <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="favicon/Ceasy.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/inicio.css">
+  <link rel="stylesheet" href="css/calculadora.css">
+  <link rel="stylesheet" href="css/graficos.css">
+  <link rel="stylesheet" href="css/teoria.css">
+  <link rel="stylesheet" href="css/ejercicios.css">
+  <link rel="stylesheet" href="css/probabilidad.css">
+  <link rel="stylesheet" href="css/glosario.css">
+  <link rel="stylesheet" href="css/tutorial.css">
+  <link rel="stylesheet" href="css/config.css">
+  <link rel="shortcut icon" href="favicon/icons8-calculadora-(2)-16.png" type="image/x-icon">
   <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
 
 <body>
-
   <!-- ===== NAVBAR ===== -->
-  <nav class="nav-random">
-    <div class="logo">Ceasy📊</div>
+  <aside class="sidebar">
+    <div class="logo">Ceasy</div>
     <ul class="nav-links">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#calculadora">Calculadora</a></li>
-      <li><a href="#">Servicios</a></li>
-      <li><a href="https://wa.me/573245476764" target="_blank">Contacto</a></li>
+
+      <!-- Inicio -->
+      <li><a href="#inicio" class="nav-link">🏠 Inicio</a></li>
+      <li><a href="#calculadora">🔢 Calculadora</a></li>
+
+      <!-- Estadística -->
+      <li class="dropdown">
+        <a class="nav-link">📊 Estadística</a>
+        <ul class="submenu">
+          <li><a href="#varianza">📊 Poblacional y Muestral</a></li>
+          <li><a href="#tabla-frecuencia">📋 Tabla de Frecuencia</a></li>
+          <li><a href="#graficos">📈 Gráficos Avanzados</a></li>
+        </ul>
+      </li>
+
+      <!-- Probabilidad -->
+      <li class="dropdown">
+        <a class="nav-link">🎲 Probabilidad</a>
+        <ul class="submenu">
+          <li><a href="#probabilidad-simple">🎯 Probabilidad Simple</a></li>
+          <li><a href="#probabilidad-compuesta">⚖️ Probabilidad Compuesta</a></li>
+          <li><a href="#probabilidad-condicional">🔗 Probabilidad Condicional</a></li>
+          <li><a href="#probabilidad-bayes">🧩 Regla de Bayes</a></li>
+        </ul>
+      </li>
+
+      <!-- Otros -->
+      <li><a href="#glosario">🧠 Glosario</a></li>
+      <li><a href="#ejercicios">🧮 Ejercicios Prácticos</a></li>
+      <li><a href="#exportar">📤 Exportar Datos</a></li>
+      <li><a href="#tutoriales">🎥 Tutoriales</a></li>
+      <li><a href="#configuracion">⚙️ Configuración</a></li>
+
     </ul>
-    <div class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-
-  <!-- ===== SECCIÓN INICIO ===== -->
-  <section id="inicio" class="container">
-    <h1>Bienvenido a Ceasy</h1>
-    <p>Esta es tu página principal. Desde aquí puedes acceder a la calculadora estadística.</p>
-    <a href="#calculadora">
-      <button>Ir a la Calculadora 📊</button>
-    </a>
-  </section>
-
-  <!-- ===== SECCIÓN CALCULADORA ===== -->
-  <section id="calculadora" class="container">
-    <h2 id="titulo">📊 Calculadora Estadística</h2>
-    <p id="descripcion">Elige poblacional o muestral y escribe los números separados por comas, sean enteros o
-      decimales:</p>
-
-    <div class="toggle-buttons">
-      <button id="btnPoblacional" class="active" type="button"
-        onclick="seleccionarTipo('poblacional')">Poblacional</button>
-      <button id="btnMuestral" type="button" onclick="seleccionarTipo('muestral')">Muestral</button>
-    </div>
-
-    <input type="text" id="entradaNumeros" placeholder="Ej: 10, 20, 30 o 1.5, 2.7, 2">
-
-    <button type="button" onclick="procesarDatos()">Calcular</button>
-
-    <h3>Resultados</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Promedio</th>
-          <th>Varianza</th>
-          <th>Desviación Estándar</th>
-          <th>Coef. de Variación</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td id="promedio"></td>
-          <td id="varianza"></td>
-          <td id="desviacion"></td>
-          <td id="coefVariacion"></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <button class="descargarExcel" onclick="descargarExcel()" id="descargarExcel">📥 Descargar Excel</button>
-  </section>
-
-  <script src="js/app.js"></script>
-  <script src="js/typeWriter.js"></script>
-</body>
-
-</html>
+  </aside>
 
 
-<!-- ====== FOOTER ====== -->
-<footer class="footer">
-  <div class="footer-container">
 
-    <!-- Sección redes -->
-    <div class="footer-redes">
-      <h4>Sígueme</h4>
-      <a href="https://www.facebook.com/cristian.juvinao?locale=es_LA" target="_blank">
-        <i class="fab fa-facebook"></i> Facebook
-      </a>
-      <a href="https://www.instagram.com/cristian_juvinao/" target="_blank">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a href="https://www.linkedin.com/in/cristian-de-jesus-juvinao-perez-864755315/" target="_blank">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a href="https://wa.me/573245476764" target="_blank">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
-    </div>
+  <!-- ===== CONTENIDO ===== -->
+   <button class="toggle-menu" id="btnMenu">☰</button>
+  <main>
+    <!-- Sección Inicio -->
 
-    <!-- Sección contacto -->
-    <div class="footer-contacto">
-      <h4>Contacto</h4>
-      <p>📞 +57 324 547 6764</p>
-      <p>cristianjuvinao801@gmail.com</p>
-      <p>cdjuvinao@mail.uniatlantico.edu.com</p>
-    </div>
+    <section id="inicio" class="inicio-bento">
+      <h1>Bienvenido a <span> Ceasy </span></h1>
+      <p>Aqui puedes encontrar una serie de aplicaciones matemáticas.</p>
 
-    <!-- Sección derechos -->
-    <div class="footer-derechos">
-      <p>&copy; 2025 Ceasy. Todos los derechos reservados.</p>
-    </div>
-  </div>
-</footer>
+      <div class="bento-grid">
+        <!-- Card 1: Calculadora -->
+        <a href="#calculadora" class="bento-card calculadora">
+          <div class="bento-content">
+            <h3>🔢 Calculadora</h3>
+            <p>sumas, restas, multiplicaciones y divisiones.</p>
+          </div>
+        </a>
+        <!-- Card 2: Calculadora -->
+        <a href="#varianza" class="bento-card calculadora">
+          <div class="bento-content">
+            <h3>estadistica poblacional y muestral</h3>
+            <p>Calcula media, varianza, moda, cuartiles y más.</p>
+          </div>
+        </a>
+
+        <!-- Card 3: Tabla de Frecuencia -->
+        <a href="#tabla-frecuencia" class="bento-card frecuencia">
+          <div class="bento-content">
+            <h3>📋 Tabla de Frecuencia</h3>
+            <p>Genera automáticamente tablas y gráficos.</p>
+          </div>
+        </a>
+
+        <!-- Card 4: Gráficos Avanzados -->
+        <a href="#graficos" class="bento-card graficos">
+          <div class="bento-content">
+            <h3>📈 Gráficos</h3>
+            <p>Visualiza tus datos con distintos tipos de gráficos.</p>
+          </div>
+        </a>
+
+        <!-- Card 5: Guía Teórica -->
+        <a href="#teoria" class="bento-card teoria">
+          <div class="bento-content">
+            <h3>📚 Guía Teórica</h3>
+            <p>Aprende los conceptos básicos de la estadística.</p>
+          </div>
+        </a>
+
+        <!-- Card 6: Exportar Datos -->
+        <a href="#exportar" class="bento-card exportar">
+          <div class="bento-content">
+            <h3>📤 Exportar Datos</h3>
+            <p>Descarga tus resultados en Excel o PDF con un clic.</p>
+          </div>
+        </a>
+
+        <!-- Card 7: Ejercicios Prácticos -->
+        <a href="#ejercicios" class="bento-card ejercicios">
+          <div class="bento-content">
+            <h3>🧮 Ejercicios Prácticos</h3>
+            <p>Refuerza tus conocimientos con problemas resueltos.</p>
+          </div>
+        </a>
+
+        <!-- Card 8: Calculadora de Probabilidad -->
+        <div class="bento-card probabilidad">
+          <div class="bento-content">
+            <h3>🎲 Probabilidad</h3>
+            <p>Calcula probabilidades y distribuciones estadísticas.</p>
+            <a href="#probabilidad-simple" class="btn-bento">Simple</a>
+            <a href="#probabilidad-compuesta" class="btn-bento">Compuesta</a>
+            <a href="#probabilidad-condicional" class="btn-bento">Condicional</a>
+            <a href="#probabilidad-bayes" class="btn-bento">Bayes</a>
+          </div>
+        </div>
 
 
-<script src="js/app.js"></script>
-<script src="js/nav.js"></script>
-<script src="js/typeWriter.js"></script>
+        <!-- Card 9: Glosario -->
+        <a href="#glosario" class="bento-card glosario">
+          <div class="bento-content">
+            <h3>🧠 Glosario</h3>
+            <p>Consulta definiciones y fórmulas de forma rápida.</p>
+          </div>
+        </a>
 
+        <!-- Card 10: Tutoriales Interactivos -->
+        <a href="#tutoriales" class="bento-card tutoriales">
+          <div class="bento-content">
+            <h3>🎥 Tutoriales</h3>
+            <p>Aprende con videos y guías paso a paso.</p>
+          </div>
+        </a>
+
+        <!-- Card 11: Configuración -->
+        <a href="#configuracion" class="bento-card configuracion">
+          <div class="bento-content">
+            <h3>⚙️ Configuración</h3>
+            <p>Personaliza temas, idioma y preferencias del sistema.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ===== CALCULADORA ===== -->
+    <section id="calculadora" class="calculadora-simple">
+      <h2>🔢 Calculadora</h2>
+
+      <div class="calc-container">
+        <input type="text" id="display" readonly placeholder="0">
+
+        <div class="buttons">
+          <button class="btn" onclick="clearDisplay()">C</button>
+          <button class="btn" onclick="deleteLast()">⌫</button>
+          <button class="btn" onclick="appendOperator('/')">÷</button>
+          <button class="btn" onclick="appendOperator('*')">×</button>
+
+          <button class="btn" onclick="appendNumber('7')">7</button>
+          <button class="btn" onclick="appendNumber('8')">8</button>
+          <button class="btn" onclick="appendNumber('9')">9</button>
+          <button class="btn" onclick="appendOperator('-')">−</button>
+
+          <button class="btn" onclick="appendNumber('4')">4</button>
+          <button class="btn" onclick="appendNumber('5')">5</button>
+          <button class="btn" onclick="appendNumber('6')">6</button>
+          <button class="btn" onclick="appendOperator('+')">+</button>
+
+          <button class="btn" onclick="appendNumber('1')">1</button>
+          <button class="btn" onclick="appendNumber('2')">2</button>
+          <button class="btn" onclick="appendNumber('3')">3</button>
+          <button class="btn equals" onclick="calculate()">=</button>
+
+          <button class="btn zero" onclick="appendNumber('0')">0</button>
+          <button class="btn" onclick="appendNumber('.')">.</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Sección valianza y desviación -->
+    <section id="varianza" class="section">
+      <h2>📊 Calculadora Estadística</h2>
+      <p>Elige poblacional o muestral y escribe los números separados por comas:</p>
+
+      <div class="toggle-buttons">
+        <button id="btnPoblacional" class="active" type="button"
+          onclick="seleccionarTipo('poblacional')">Poblacional</button>
+        <button id="btnMuestral" type="button" onclick="seleccionarTipo('muestral')">Muestral</button>
+      </div>
+
+      <input type="text" id="entradaNumeros" placeholder="Ej: 10, 20, 30 o 1.5, 2.7, 2">
+      <button id="btnProcesar">Calcular</button>
+
+      <div id="info-estadistica" class="info-estadistica"></div>
+
+      <button class="descargarExcel" onclick="descargarExcel()" id="btnDescargarCalculadora">📥 Descargar Excel</button>
+    </section>
+
+    <!-- Sección Tabla de Frecuencia -->
+    <section class="contenedor-tabla" id="tabla-frecuencia">
+      <h2>Tabla de Frecuencia</h2>
+
+      <div id="inputs-frecuencia">
+        <label for="datos-frecuencia">Ingresa los datos (separados por comas):</label>
+        <input type="text" id="datos-frecuencia" placeholder="Ej: 10,20,30,40,50">
+        <button onclick="generarTablaFrecuencia()">Generar Tabla</button>
+      </div>
+
+      <!-- Aquí se generará la tabla y el gráfico -->
+      <div id="resultado-tabla">
+        <div id="tabla-generada"></div>
+        <canvas id="grafico" width="400" height="200"></canvas>
+        <button id="btnDescargar">Descargar</button>
+
+      </div>
+
+    </section>
+    <!-- Sección Gráficos Avanzados -->
+    <section id="graficos" class="section graficos-avanzados">
+      <h2>📈 Gráficos Avanzados</h2>
+      <p>Visualiza tus datos fácilmente en distintos tipos de gráficos.</p>
+
+      <div class="grafico-container">
+        <div class="grafico-inputs">
+          <label for="datosGrafico">Datos (separados por comas):</label>
+          <input type="text" id="datosGrafico" placeholder="Ej: 10, 20, 30, 40, 50">
+
+          <label for="tipoGrafico">Tipo de gráfico:</label>
+          <select id="tipoGrafico">
+            <option value="bar">📊 Barras</option>
+            <option value="line">📈 Líneas</option>
+            <option value="pie">🥧 Circular</option>
+            <option value="radar">🕸️ Radar</option>
+          </select>
+
+          <button id="btnGenerarGrafico">Generar gráfico</button>
+        </div>
+
+        <div class="grafico-canvas">
+          <canvas id="chartCanvas"></canvas>
+        </div>
+
+        <button id="btnDescargarGrafico" class="descargarGrafico">📥 Descargar Imagen</button>
+      </div>
+    </section>
+    <!-- teria  -->
+    <!-- ===== SECCIÓN GUÍA TEÓRICA ===== -->
+    <section id="teoria" class="teoria-section">
+      <h2>📚 Guía Teórica</h2>
+      <p class="intro-teoria">Explora los conceptos fundamentales de la estadística de manera clara y visual.</p>
+
+      <div class="teoria-cards">
+        <div class="teoria-card">
+          <h3 class="teoria-titulo">Media Aritmética</h3>
+          <div class="teoria-contenido">
+            <p>La media aritmética se obtiene sumando todos los valores de un conjunto de datos y dividiéndolos entre el
+              número total de elementos.</p>
+            <code>Media = (Σxᵢ) / n</code>
+          </div>
+        </div>
+
+        <div class="teoria-card">
+          <h3 class="teoria-titulo">Mediana</h3>
+          <div class="teoria-contenido">
+            <p>La mediana es el valor central de un conjunto de datos ordenados. Divide la distribución en dos partes
+              iguales.</p>
+            <code>Si n es impar → valor central<br>Si n es par → promedio de los dos centrales</code>
+          </div>
+        </div>
+
+        <div class="teoria-card">
+          <h3 class="teoria-titulo">Moda</h3>
+          <div class="teoria-contenido">
+            <p>La moda es el valor que aparece con mayor frecuencia en un conjunto de datos.</p>
+            <code>Unimodal, bimodal o multimodal según cuántas modas existan.</code>
+          </div>
+        </div>
+
+        <div class="teoria-card">
+          <h3 class="teoria-titulo">Varianza y Desviación Estándar</h3>
+          <div class="teoria-contenido">
+            <p>La varianza mide la dispersión de los datos respecto a la media. La desviación estándar es la raíz
+              cuadrada de la varianza.</p>
+            <code>Varianza (σ²) = Σ(xᵢ - μ)² / n<br>Desviación (σ) = √σ²</code>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== EJERCICIOS ===== -->
+    <section id="ejercicios" class="ejercicios-section">
+      <h2>🧩 Ejercicios Prácticos</h2>
+      <p class="subtitulo">
+        Pon a prueba tus conocimientos con estos ejercicios interactivos.
+      </p>
+
+      <div class="ejercicios-grid">
+        <!-- Card de Ejercicio -->
+        <div class="ej-card" data-ejercicio="media">
+          <h3>📊 Media Aritmética</h3>
+          <p>Calcula la media de un conjunto de datos.</p>
+          <button class="btn-ejercicio">Comenzar</button>
+        </div>
+
+        <div class="ej-card" data-ejercicio="mediana">
+          <h3>📈 Mediana</h3>
+          <p>Ordena los datos y encuentra la mediana.</p>
+          <button class="btn-ejercicio">Comenzar</button>
+        </div>
+
+        <div class="ej-card" data-ejercicio="moda">
+          <h3>📉 Moda</h3>
+          <p>Encuentra el valor que más se repite.</p>
+          <button class="btn-ejercicio">Comenzar</button>
+        </div>
+
+        <div class="ej-card" data-ejercicio="desviacion">
+          <h3>🧮 Desviación Estándar</h3>
+          <p>Calcula el grado de dispersión de los datos.</p>
+          <button class="btn-ejercicio">Comenzar</button>
+        </div>
+      </div>
+
+      <!-- Contenedor dinámico para ejercicios -->
+      <div id="resultado-ejercicio" class="resultado-ejercicio oculto">
+        <h3 id="titulo-ejercicio"></h3>
+        <div id="contenido-ejercicio"></div>
+        <button id="btnFinalizar" class="btn-ejercicio finalizar">Finalizar</button>
+      </div>
+    </section>
+
+    <!-- Probabilidad Simple -->
+
+    <section id="probabilidad-simple" class="probabilidad-section">
+      <h2>🎯 Probabilidad Simple</h2>
+      <p>Introduce el número de casos favorables y el total de casos posibles:</p>
+      <input id="favorables" type="number" placeholder="Casos favorables">
+      <input id="posibles" type="number" placeholder="Casos posibles">
+      <button id="btnSimple">Calcular</button>
+      <p id="resSimple">P(E) = 0</p>
+
+    </section>
+
+    <!-- Probabilidad Compuesta -->
+    <section id="probabilidad-compuesta" class="probabilidad-section">
+      <h2>⚖️ Probabilidad Compuesta</h2>
+      <p>Introduce la probabilidad del evento A y del evento B:</p>
+      <input id="probA" type="number" placeholder="P(A)" step="0.01">
+      <input id="probB" type="number" placeholder="P(B)" step="0.01">
+      <button id="btnCompuesta">Calcular</button>
+      <p id="resCompuesta">P(A y B) = 0</p>
+    </section>
+
+    <!-- Probabilidad Condicional -->
+    <section id="probabilidad-condicional" class="probabilidad-section">
+      <h2>🔗 Probabilidad Condicional</h2>
+      <p>Introduce P(A∩B) y P(B):</p>
+      <input id="interseccion" type="number" placeholder="P(A∩B)" step="0.01">
+      <input id="probBcond" type="number" placeholder="P(B)" step="0.01">
+      <button id="btnCondicional">Calcular</button>
+      <p id="resCondicional">P(A|B) = 0</p>
+    </section>
+
+    <!-- Regla de Bayes -->
+    <section id="probabilidad-bayes" class="probabilidad-section">
+      <h2>🧩 Regla de Bayes</h2>
+      <p>Introduce los siguientes valores:</p>
+      <input id="probB_dadoA" type="number" placeholder="P(B|A)" step="0.01">
+      <input id="probA_bayes" type="number" placeholder="P(A)" step="0.01">
+      <input id="probB_bayes" type="number" placeholder="P(B)" step="0.01">
+      <button id="btnBayes">Calcular</button>
+      <p id="resBayes">P(A|B) = 0</p>
+    </section>
+    <!-- glosario -->
+    <section id="glosario" class="glosario-section">
+      <h2>🧠 Glosario Estadístico</h2>
+      <p class="subtitulo">Consulta los términos y conceptos más importantes de la estadística.</p>
+
+      <div class="buscador-glosario">
+        <img src="img/lupa.png" alt="lupa" width="20px" height="20px">
+        <input type="text" id="buscarGlosario" placeholder="Buscar término...">
+
+      </div>
+
+      <div id="listaGlosario" class="lista-glosario">
+        <div class="glosario-card" data-palabra="media">
+          <h3>Media</h3>
+          <p>Es el promedio aritmético de un conjunto de datos. Se obtiene sumando todos los valores y dividiéndolos
+            entre el número total de elementos.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="mediana">
+          <h3>Mediana</h3>
+          <p>Valor central de un conjunto de datos ordenados. Divide la distribución en dos partes iguales.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="moda">
+          <h3>Moda</h3>
+          <p>Valor o categoría que más se repite en un conjunto de datos.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="varianza">
+          <h3>Varianza</h3>
+          <p>Mide la dispersión de los datos respecto a la media. Se calcula promediando los cuadrados de las
+            diferencias entre cada dato y la media.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="desviacion estandar">
+          <h3>Desviación Estándar</h3>
+          <p>Raíz cuadrada de la varianza. Indica cuánto se alejan, en promedio, los datos respecto a la media.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="frecuencia">
+          <h3>Frecuencia</h3>
+          <p>Número de veces que aparece un valor en un conjunto de datos.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="percentil">
+          <h3>Percentil</h3>
+          <p>Valor que divide un conjunto de datos ordenados en 100 partes iguales. Indica la posición relativa de un
+            valor dentro del conjunto.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="cuartil">
+          <h3>Cuartil</h3>
+          <p>Valor que divide el conjunto de datos ordenados en cuatro partes iguales.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="decil">
+          <h3>Decil</h3>
+          <p>Valor que divide un conjunto de datos ordenados en diez partes iguales.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="rango">
+          <h3>Rango</h3>
+          <p>Diferencia entre el valor máximo y mínimo de un conjunto de datos.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="sesgo">
+          <h3>Sesgo</h3>
+          <p>Indica la asimetría de la distribución de los datos.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="kurtosis">
+          <h3>Kurtosis</h3>
+          <p>Indica la forma de la distribución respecto a la normal. Valores altos indican colas más pesadas.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="probabilidad">
+          <h3>Probabilidad</h3>
+          <p>Medida de la posibilidad de que ocurra un evento, expresada entre 0 y 1.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="evento">
+          <h3>Evento</h3>
+          <p>Resultado o conjunto de resultados de un experimento aleatorio.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="evento complementario">
+          <h3>Evento Complementario</h3>
+          <p>Evento que ocurre cuando el original no ocurre.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="evento independiente">
+          <h3>Evento Independiente</h3>
+          <p>Evento que no se ve afectado por otro.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="evento dependiente">
+          <h3>Evento Dependiente</h3>
+          <p>Evento que depende de otro para ocurrir.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="discreta">
+          <h3>Variable Discreta</h3>
+          <p>Variable que solo puede tomar valores específicos y contables.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="continua">
+          <h3>Variable Continua</h3>
+          <p>Variable que puede tomar cualquier valor dentro de un rango.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="poblacional">
+          <h3>Poblacional</h3>
+          <p>Todos los elementos de un grupo bajo estudio.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="muestral">
+          <h3>Muestral</h3>
+          <p>Conjunto de datos extraído de la población.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="histograma">
+          <h3>Histograma</h3>
+          <p>Gráfico que representa la frecuencia de los datos mediante barras contiguas.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="poligono de frecuencias">
+          <h3>Polígono de Frecuencias</h3>
+          <p>Gráfico que une los puntos centrales de cada barra de un histograma para mostrar la distribución.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="Regla de Bayes">
+          <h3>Regle de Bayes</h3>
+          <p>La Regla de Bayes es un principio fundamental de la probabilidad que permite actualizar la probabilidad de
+            un evento A dado que ha ocurrido otro evento B, utilizando información conocida sobre probabilidades
+            condicionales.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="tabla de frecuencias">
+          <h3>Tabla de Frecuencias</h3>
+          <p>Organiza los datos y muestra cuántas veces aparece cada valor o rango.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="distribucion normal">
+          <h3>Distribución Normal</h3>
+          <p>Distribución de probabilidad en forma de campana simétrica donde la mayoría de los valores se concentran
+            cerca de la media.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="distribucion binomial">
+          <h3>Distribución Binomial</h3>
+          <p>Distribución de probabilidad para variables discretas que cuentan éxitos/fallos en ensayos independientes.
+          </p>
+        </div>
+
+        <div class="glosario-card" data-palabra="distribucion poisson">
+          <h3>Distribución de Poisson</h3>
+          <p>Distribución discreta que mide el número de eventos en intervalos de tiempo o espacio fijos.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="intervalo de confianza">
+          <h3>Intervalo de Confianza</h3>
+          <p>Rango dentro del cual se espera que se encuentre un parámetro poblacional con un nivel de confianza dado.
+          </p>
+        </div>
+
+        <div class="glosario-card" data-palabra="error estandar">
+          <h3>Error Estándar</h3>
+          <p>Mide la variabilidad de la estadística muestral respecto al parámetro poblacional.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="coeficiente de correlacion">
+          <h3>Coeficiente de Correlación</h3>
+          <p>Indica la relación lineal entre dos variables, tomando valores entre -1 y 1.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="regresion lineal">
+          <h3>Regresión Lineal</h3>
+          <p>Modelo que predice el valor de una variable dependiente a partir de una variable independiente mediante una
+            línea recta.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="outlier">
+          <h3>Outlier</h3>
+          <p>Dato que se encuentra muy alejado del resto de los datos y puede afectar el análisis estadístico.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="coeficiente de variacion">
+          <h3>Coeficiente de Variación</h3>
+          <p>Medida de dispersión relativa. Se calcula como la desviación estándar dividida por la media.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="media ponderada">
+          <h3>Media Ponderada</h3>
+          <p>Promedio donde algunos valores tienen más importancia (peso) que otros.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="frecuencia relativa">
+          <h3>Frecuencia Relativa</h3>
+          <p>Proporción de veces que ocurre un valor respecto al total de datos.</p>
+        </div>
+
+        <div class="glosario-card" data-palabra="frecuencia acumulada">
+          <h3>Frecuencia Acumulada</h3>
+          <p>Suma de las frecuencias de los valores hasta un determinado punto del conjunto de datos.</p>
+        </div>
+      </div>
+    </section>
+    <!-- ===== FIN SECCIÓN GLOSARIO ===== -->
+    <section id="tutoriales" class="tutoria-section">
+      <h2>👨‍🏫 Tutoriales y Guías</h2>
+      <p class="intro-tutoria">
+        Aquí encontrarás tutoriales paso a paso para aprender sobre los temas más importantes.
+        Haz clic en cada tutorial para ver la guía completa o ver un video explicativo.
+      </p>
+
+      <div class="tutoria-card">
+        <h3>Estadística Descriptiva</h3>
+        <p>Aprende a calcular media, mediana, moda, varianza y desviación estándar con ejemplos prácticos.</p>
+        <a href="tutorials/estadistica.html" class="btn-tutoria">Ver Tutorial Completo</a>
+        <a href="https://youtu.be/example1" target="_blank" class="btn-tutoria">Ver Video</a>
+      </div>
+
+      <div class="tutoria-card">
+        <h3>Probabilidad</h3>
+        <p>Comprende cómo calcular probabilidades, eventos independientes y dependientes, y distribuciones básicas.</p>
+        <a href="tutorials/probabilidad.html" class="btn-tutoria">Ver Tutorial Completo</a>
+        <a href="https://youtu.be/example2" target="_blank" class="btn-tutoria">Ver Video</a>
+      </div>
+
+      <div class="tutoria-card">
+        <h3>Gráficos y Representaciones</h3>
+        <p>Aprende a crear histogramas, polígonos de frecuencia y gráficos de barras paso a paso.</p>
+        <a href="tutorials/graficos.html" class="btn-tutoria">Ver Tutorial Completo</a>
+        <a href="https://youtu.be/example3" target="_blank" class="btn-tutoria">Ver Video</a>
+      </div>
+
+      <div class="tutoria-card">
+        <h3>Medidas de Tendencia Central</h3>
+        <p>Descubre cómo interpretar y calcular media, mediana, moda y percentiles para tus datos.</p>
+        <a href="tutorials/medidas.html" class="btn-tutoria">Ver Tutorial Completo</a>
+        <a href="https://youtu.be/example4" target="_blank" class="btn-tutoria">Ver Video</a>
+      </div>
+
+      <div class="tutoria-card">
+        <h3>Extras: Ejercicios Prácticos</h3>
+        <p>Refuerza lo aprendido con ejercicios resueltos y ejemplos interactivos.</p>
+        <a href="tutorials/ejercicios.html" class="btn-tutoria">Ver Ejercicios</a>
+      </div>
+    </section>
+    <!-- config -->
+    <section id="configuracion" class="config-section">
+      <h2>⚙️ Configuración</h2>
+      <p class="config-intro">Personaliza tu experiencia visual como más te guste.</p>
+
+      <div class="config-container">
+        <!-- 🎨 Tema -->
+        <div class="config-card">
+          <h3>🌗 Modo de Tema</h3>
+          <p>Elige entre modo claro u oscuro.</p>
+          <button id="toggle-theme" class="btn-toggle">Cambiar a Modo Oscuro 🌙</button>
+        </div>
+
+        <!-- 🔤 Tamaño de fuente -->
+        <div class="config-card">
+          <h3>🔤 Tamaño de Fuente</h3>
+          <p>Ajusta el tamaño del texto para tu comodidad.</p>
+          <input type="range" id="font-size" min="14" max="22" value="16">
+          <span id="font-size-label">16px</span>
+        </div>
+
+        <!-- 🎨 Color Principal -->
+        <div class="config-card">
+          <h3>🎨 Color Principal</h3>
+          <p>Selecciona el color base de la interfaz.</p>
+          <input type="color" id="primary-color" value="#0a6d92">
+        </div>
+
+        <!-- 💾 Guardar -->
+        <div class="config-card save-card">
+          <h3>💾 Guardar Preferencias</h3>
+          <p>Guarda tus configuraciones para la próxima vez que ingreses.</p>
+          <button id="save-settings" class="btn-save">Guardar Cambios</button>
+          <p id="save-message" class="save-message"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script type="module" src="js/main.js"></script>
+
+  <script src="js/calculadora.js"></script>
+  <script src="js/graficos.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/ejercicios.js"></script>
+  <script src="js/probabilidad.js"></script>
+  <script src="js/glosario.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/ejemplo.js"></script>
+  <!-- rutas  -->
+  <script src="js/rutas.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,111 @@
+/* ======== SECCIÓN PRINCIPAL ======== */
+.calculadora-simple {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #f9fafb; /* fondo general claro */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculadora-simple h2 {
+  margin-bottom: 20px;
+}
+/* ======== CONTENEDOR ======== */
+.calc-container {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calc-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ======== PANTALLA ======== */
+#display {
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+  color: #1e293b;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.9rem;
+  text-align: right;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 0.8rem;
+  margin-bottom: 1.5rem;
+  outline: none;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ======== GRID DE BOTONES ======== */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ======== BOTONES ======== */
+.btn {
+  height: 70px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.8rem;
+  background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btn:hover {
+  background: #e0f2fe;
+  color: #0369a1;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ======== BOTÓN IGUAL ======== */
+.equals {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 0 3px 12px rgba(14, 165, 233, 0.4);
+}
+
+.equals:hover {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
+}
+
+/* ======== BOTÓN CERO GRANDE ======== */
+.zero {
+  grid-column: span 2;
+}
+
+/* ======== EFECTO RESPONSIVE ======== */
+@media (max-width: 790px) {
+  .buttons {
+    grid-template-columns: repeat(4, 65px);
+    gap: 10px;
+  }
+
+  .btn {
+    height: 60px;
+    font-size: 1rem;
+  }
+
+  #display {
+    font-size: 1.6rem;
+  }
+}

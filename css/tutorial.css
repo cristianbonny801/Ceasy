@@ -1,0 +1,141 @@
+.tutoria-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #f7f9fb, #e8eef3);
+  color: #2c3e50;
+}
+
+.tutoria-section h2 {
+  font-size: 2.2rem;
+  color: #0a6d92;
+  margin-bottom: 1rem;
+}
+
+.intro-tutoria {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #4b4b4b;
+}
+
+.tutoria-card {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.tutoria-card h3 {
+  text-align: center;
+  color: #0a6d92;
+  margin-bottom: 1rem;
+}
+
+.tutoria-card label {
+  display: block;
+  font-weight: 600;
+  margin-top: 1rem;
+  color: #333;
+}
+
+.tutoria-card input,
+.tutoria-card select,
+.tutoria-card textarea {
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccd6dd;
+  font-size: 1rem;
+  background: #f9fafb;
+  transition: all 0.2s;
+}
+
+.tutoria-card input:focus,
+.tutoria-card select:focus,
+.tutoria-card textarea:focus {
+  border-color: #0a6d92;
+  box-shadow: 0 0 5px rgba(10, 109, 146, 0.3);
+  outline: none;
+}
+
+.btn-tutoria {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  background: #0a6d92;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-tutoria:hover {
+  background: #0894c7;
+}
+
+.mensaje-confirmacion {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #0a6d92;
+  display: none;
+}
+@media (max-width: 790px) {
+  .tutoria-section {
+    padding: 2.5rem 1rem;
+    text-align: center;
+  }
+
+  .tutoria-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .intro-tutoria {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .tutoria-card {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .tutoria-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .tutoria-card label {
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
+  }
+
+  .tutoria-card input,
+  .tutoria-card select,
+  .tutoria-card textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  .btn-tutoria {
+    padding: 0.7rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .mensaje-confirmacion {
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+  }
+}

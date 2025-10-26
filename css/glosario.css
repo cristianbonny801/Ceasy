@@ -1,0 +1,117 @@
+.glosario-section {
+  padding: 3rem 2rem;
+  background: linear-gradient(180deg, #f9fafc, #eef2f5);
+  color: #222;
+  text-align: center;
+}
+
+.glosario-section h2 {
+  color: #1565c0;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.glosario-section .subtitulo {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.buscador-glosario {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buscador-glosario input {
+  width: 100%;
+  padding: 10px 40px 10px 12px; /* espacio para la lupa */
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.buscador-glosario input:focus {
+  border-color: #4285f4;
+  box-shadow: 0 4px 12px rgba(66,133,244,0.3);
+}
+
+/* Lupa dentro del input */
+.buscador-glosario img {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* para que no interfiera al escribir */
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.buscador-glosario input:focus + img {
+  opacity: 1;
+}
+
+/* ===== LISTA DE GLOSARIO ===== */
+.lista-glosario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.glosario-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: left;
+}
+
+.glosario-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.glosario-card h3 {
+  color: #1976d2;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.glosario-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 790px) {
+  .buscador-glosario input[type="text"] {
+    width: 80%;
+    font-size: 0.95rem;
+  }
+
+  .lista-glosario {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .glosario-card {
+    padding: 1.2rem;
+  }
+
+  .glosario-section h2 {
+    font-size: 1.7rem;
+  }
+
+  .glosario-section .subtitulo {
+    font-size: 0.95rem;
+  }
+}
